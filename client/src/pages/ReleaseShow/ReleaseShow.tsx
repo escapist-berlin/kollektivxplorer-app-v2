@@ -32,9 +32,21 @@ const ReleaseShow: React.FC = () => {
                     [format.name, ...(format.descriptions || [])].join(', ')
                   )
                   .join(', ')
-              : ''}
+                : ''}
               {release.formats?.length && release.year ? ' - ' : ''}
               {release.year || []}
+            </p>
+          )}
+
+          {(release.genres?.length || release.styles?.length) && (
+            <p>
+              {release.genres?.length
+                ? release.genres.join(', ')
+                : ''}
+              {release.genres?.length && release.styles?.length ? ': ' : ''}
+              {release.styles?.length
+                ? release.styles.join(', ')
+                : ''}
             </p>
           )}
         </>
