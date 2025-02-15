@@ -1,0 +1,25 @@
+name: Frontend Lint
+on: [ pull_request ]
+
+jobs:
+  lint:
+    name: Run Frontend ESLint
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository ✅
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 🔧
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies 📦
+        run: npm install
+        working-directory: client
+
+      - name: Run ESLint 👀
+        run: npm run lint
+        working-directory: client
