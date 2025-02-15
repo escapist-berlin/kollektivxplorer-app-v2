@@ -12,7 +12,6 @@
 
 ## Testing Instructions:
 <!-- Provide a step-by-step guide on how to test the changes introduced by this pull request. -->
-<!-- * `herd php artisan migrate:fresh --seed` -->
 
 ## Test Case Scope:
 <!-- Briefly describe the scope of your test cases and which areas are deliberately not covered. -->
