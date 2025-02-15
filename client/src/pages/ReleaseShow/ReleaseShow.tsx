@@ -16,8 +16,8 @@ const ReleaseShow: React.FC = () => {
     <div>
       {release ? (
         <>
-          {release.images && release.images.length > 0 && (
-            <img src={release.images[0].uri} alt="Cover" />
+          {release.images.length > 0 && (
+            <img src={release.images[0].uri} alt="Cover"/>
           )}
 
           <h1>{release.title}</h1>
@@ -38,7 +38,7 @@ const ReleaseShow: React.FC = () => {
             </p>
           )}
 
-          {(release.genres?.length || release.styles?.length) && (
+          {(release.genres?.length > 0 || release.styles?.length > 0) && (
             <p>
               {release.genres?.length
                 ? release.genres.join(', ')
@@ -49,6 +49,35 @@ const ReleaseShow: React.FC = () => {
                 : ''}
             </p>
           )}
+
+          <hr/>
+
+          <div>
+            <button>Play</button>
+            <button>Shuffle</button>
+            <div>
+              <button>...</button>
+              <div>
+                <a href="#">Add to queue</a>
+                <a href="#">Add to playlist</a>
+                <a href="#">Share</a>
+              </div>
+            </div>
+          </div>
+
+          <hr/>
+
+          {release.videos?.length > 0 ? (
+            release.videos.map((video) => (
+              <p key={video.uri}>{video.title}</p>
+            ))
+          ) : (
+            release.tracklist?.map((track) => (
+              <p key={track.position}>{track.position} - {track.title}</p>
+            ))
+          )}
+
+          <hr/>
         </>
       ) : (
         <p>Loading...</p>
