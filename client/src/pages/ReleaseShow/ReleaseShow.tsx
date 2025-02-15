@@ -78,6 +78,24 @@ const ReleaseShow: React.FC = () => {
           )}
 
           <hr/>
+
+          {(release.labels?.length > 0 || release.released_formatted) && (
+            <p>
+              {release.labels?.length
+                ? release.labels
+                  .map((label: { name: string; catno: string }) =>
+                    `${label.name} - ${label.catno}`
+                  )
+                  .join(', ')
+                : ''}
+              {release.labels?.length && release.released_formatted ? ' | ' : ''}
+              {release.released_formatted || []}
+            </p>
+          )}
+
+          {release.country && (
+            <p>{release.country}</p>
+          )}
         </>
       ) : (
         <p>Loading...</p>
