@@ -16,10 +16,26 @@ const ReleaseShow: React.FC = () => {
     <div>
       {release ? (
         <>
-          <h1>{release.title}</h1>
-          <h2>{release.artists.map((artist: { name: string }) => artist.name).join(', ')}</h2>
-          {release.images.length > 0 && (
+          {release.images && release.images.length > 0 && (
             <img src={release.images[0].uri} alt="Cover" />
+          )}
+
+          <h1>{release.title}</h1>
+
+          <h2>{release.artists.map((artist: { name: string }) => artist.name).join(', ')}</h2>
+
+          {(release.formats?.length > 0 || release.year) && (
+            <p>
+              {release.formats?.length
+                ? release.formats
+                  .map((format: { name: string; descriptions?: string[] }) =>
+                    [format.name, ...(format.descriptions || [])].join(', ')
+                  )
+                  .join(', ')
+              : ''}
+              {release.formats?.length && release.year ? ' - ' : ''}
+              {release.year || []}
+            </p>
           )}
         </>
       ) : (
