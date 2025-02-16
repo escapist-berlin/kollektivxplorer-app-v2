@@ -1,6 +1,8 @@
 import { Release } from "../../types/Release.ts";
 import React, { useEffect, useState } from "react";
-import './ReleaseShow.module.scss'
+import styles from './ReleaseShow.module.scss';
+import { MdPlayArrow, MdShuffle } from "react-icons/md";
+import { FiMoreVertical } from "react-icons/fi";
 
 const ReleaseShow: React.FC = () => {
   const [release, setRelease] = useState<Release | null>(null);
@@ -13,11 +15,15 @@ const ReleaseShow: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles['release-show']}>
       {release ? (
         <>
           {release.images.length > 0 && (
-            <img src={release.images[0].uri} alt="Cover"/>
+            <img
+              src={release.images[0].uri}
+              alt="Cover"
+              className={styles['release-show__image']}
+            />
           )}
 
           <h1>{release.title}</h1>
@@ -50,22 +56,11 @@ const ReleaseShow: React.FC = () => {
             </p>
           )}
 
-          <hr/>
-
-          <div>
-            <button>Play</button>
-            <button>Shuffle</button>
-            <div>
-              <button>...</button>
-              <div>
-                <a href="#">Add to queue</a>
-                <a href="#">Add to playlist</a>
-                <a href="#">Share</a>
-              </div>
-            </div>
+          <div className={styles['release-show__buttons']}>
+            <button><MdPlayArrow /></button>
+            <button><MdShuffle /></button>
+            <button><FiMoreVertical /></button>
           </div>
-
-          <hr/>
 
           {release.videos?.length > 0 ? (
             release.videos.map((video) => (
@@ -76,8 +71,6 @@ const ReleaseShow: React.FC = () => {
               <p key={track.position}>{track.position} - {track.title}</p>
             ))
           )}
-
-          <hr/>
 
           {(release.labels?.length > 0 || release.released_formatted) && (
             <p>

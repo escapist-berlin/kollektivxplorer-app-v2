@@ -1,0 +1,32 @@
+@import "../../styles/mixins";
+
+.release-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__image {
+    max-width: 90%;
+    height: auto;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  @include for-tablet-up {
+    &__image {
+      max-width: 80%;
+    }
+  }
+
+  @include for-desktop-up {
+    &__image {
+      max-width: 70%;
+    }
+  }
+}
