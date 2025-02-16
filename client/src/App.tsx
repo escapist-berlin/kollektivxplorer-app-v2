@@ -1,10 +1,10 @@
-import './styles/_main.scss';
+import './styles/main.scss';
 import ReleaseShow from "./pages/ReleaseShow/ReleaseShow.tsx";
 
 function App() {
   return (
     <>
-      <div className="card">
+      <div>
         <ReleaseShow />
       </div>
     </>
