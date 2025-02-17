@@ -1,11 +1,12 @@
 @import "../../styles/mixins";
 
 .release-show {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  background: linear-gradient(to bottom, #232526, #414345); // TODO: Implement dynamic gradient from cover image. 'Color Thief' package didn't work, find alternatives.
   &__image {
     max-width: 90%;
     height: auto;
