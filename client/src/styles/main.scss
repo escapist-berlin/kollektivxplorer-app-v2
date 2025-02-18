@@ -1,0 +1,36 @@
+@import 'mixins';
+@import 'variables';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-primary;
+  line-height: 1.5;
+  color: $color-primary;
+  background-color: $color-background;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
