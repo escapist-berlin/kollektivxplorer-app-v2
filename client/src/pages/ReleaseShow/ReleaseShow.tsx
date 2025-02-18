@@ -1,8 +1,8 @@
 import { Release } from "../../types/Release.ts";
 import React, { useEffect, useState } from "react";
 import styles from './ReleaseShow.module.scss';
-import { MdPlayArrow, MdShuffle } from "react-icons/md";
-import { FiMoreVertical } from "react-icons/fi";
+import { MdPlayArrow, MdMoreHoriz } from "react-icons/md";
+import { TiArrowShuffle } from "react-icons/ti";
 
 const ReleaseShow: React.FC = () => {
   const [release, setRelease] = useState<Release | null>(null);
@@ -57,9 +57,9 @@ const ReleaseShow: React.FC = () => {
           )}
 
           <div className={styles['release-show__buttons']}>
-            <button><MdPlayArrow /></button>
-            <button><MdShuffle /></button>
-            <button><FiMoreVertical /></button>
+            <button className={styles['play-button']}><MdPlayArrow /></button>
+            <button><TiArrowShuffle /></button>
+            <button><MdMoreHoriz /></button>
           </div>
 
           {release.videos?.length > 0 ? (
